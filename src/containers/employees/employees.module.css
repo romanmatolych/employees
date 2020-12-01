@@ -1,0 +1,14 @@
+.alphabetMenu {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.employees {
+    width: 100%;
+}
+
+@media only screen and (min-width: 1000px) {
+    .employees {
+        width: 60%;
+    }
+}

@@ -1,0 +1,12 @@
+.letterSection {
+    width: 25%;
+    padding: 0 15px 15px;
+    height: 300px;
+    overflow: auto;
+}
+
+.header {
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
