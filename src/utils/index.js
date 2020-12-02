@@ -1,1 +1,1 @@
-export * from './employees-birthday-utils';
+export * from './users-utils';

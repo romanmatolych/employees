@@ -11,36 +11,37 @@ const Employees = ({ users, loadUsers, triggerUser, isLoading, selectedUserIds, 
     loadUsers();
   }, [loadUsers]);
 
-  const prepareUserList = letter => users
-    .slice()
-    .filter(({ lastName }) => lastName.toLowerCase().startsWith(letter))
-    .map((user) => {
-      user.checked = selectedUserIds.includes(user.id);
-      return user;
-    });
+  const prepareUserList = (letter) =>
+    users
+      .filter(({ lastName }) => lastName.toLowerCase().startsWith(letter))
+      .map((user) => ({
+        ...user,
+        checked: selectedUserIds.includes(user.id),
+      }));
+
   const userCheckedHandler = (id, e) => triggerUser(id, e.target.checked);
 
-  let content = null;
+  const getMenuContent = () => {
+    if (error) {
+      return `Error: ${error.message}`;
+    }
 
-  if (error) {
-    content = `Error: ${error.message}`;
-  } else if (isLoading) {
-    content = 'Loading...';
-  } else {
-    content = ALPHABET.map((letter) => (
-      <LetterSection
-        key={letter}
-        letter={letter}
-        users={prepareUserList(letter)}
-        onUserCheck={userCheckedHandler}
-      />
-    ))
-  }
+    return isLoading
+      ? 'Loading...'
+      : ALPHABET.map((letter) => (
+          <LetterSection
+            key={letter}
+            letter={letter}
+            users={prepareUserList(letter)}
+            onUserCheck={userCheckedHandler}
+          />
+        ));
+  };
 
   return (
     <div className={styles.employees}>
       <div className="header">Employees</div>
-      <div className={styles.alphabetMenu}>{content}</div>
+      <div className={styles.alphabetMenu}>{getMenuContent()}</div>
     </div>
   );
 };
