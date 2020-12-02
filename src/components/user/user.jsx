@@ -2,11 +2,18 @@ import React from 'react';
 
 import * as styles from './user.module.css';
 
-const User = ({ user, onChange }) => (
-  <div>
-    <span className={styles.fullName}>{user.lastName} {user.firstName}</span>
-    <input type="checkbox" onChange={(e) => onChange(user.id, e)} checked={user.checked} />
-  </div>
-);
+const User = ({ user, onChange }) => {
+  const { lastName, firstName, id, checked } = user;
+  const changeHandler = (e) => onChange(id, e);
+
+  return (
+    <div>
+      <span className={styles.fullName}>
+        {lastName} {firstName}
+      </span>
+      <input type="checkbox" onChange={changeHandler} checked={checked} />
+    </div>
+  );
+};
 
 export default User;

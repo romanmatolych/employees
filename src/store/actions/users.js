@@ -5,7 +5,7 @@ export const USER_TRIGGER = 'USER_TRIGGER';
 
 const API_BASE_URL = 'https://yalantis-react-school-api.yalantis.com/api/task0';
 
-export const loadUsers = () => async dispatch => {
+export const loadUsers = () => async (dispatch) => {
   dispatch({ type: LOAD_USERS_REQUEST });
   const response = await fetch(`${API_BASE_URL}/users`);
   try {

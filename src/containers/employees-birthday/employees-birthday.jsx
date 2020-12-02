@@ -8,16 +8,17 @@ import * as styles from './employees-birthday.module.css';
 const EmployeesBirthday = ({ selectedUsers }) => {
   const usersGroupedByMonth = groupUsersByBirthdayMonths(selectedUsers);
 
-  const monthGroups = Object.entries(usersGroupedByMonth).map(([monthName, users]) =>
-    users.length ? <MonthGroup key={monthName} monthName={monthName} users={users.slice()} /> : null,
-  );
+  const monthGroups = Object.entries(usersGroupedByMonth)
+    // do not show a month without selected employees
+    .filter(([, users]) => users.length)
+    .map(([monthName, users]) => (
+      <MonthGroup key={monthName} monthName={monthName} users={users} />
+    ));
 
   return (
     <div className={styles.employeesBirthday}>
       <div className="header">Employees birthday</div>
-      {selectedUsers.length
-        ? monthGroups
-        : 'No selected employees'}
+      {selectedUsers.length ? monthGroups : 'No selected employees'}
     </div>
   );
 };
