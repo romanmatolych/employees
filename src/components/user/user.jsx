@@ -7,8 +7,8 @@ const User = ({ user, onChange }) => {
   const changeHandler = (e) => onChange(id, e);
 
   return (
-    <div>
-      <span className={styles.fullName}>
+    <div className={styles.user}>
+      <span>
         {lastName} {firstName}
       </span>
       <input type="checkbox" onChange={changeHandler} checked={checked} />

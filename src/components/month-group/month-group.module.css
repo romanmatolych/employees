@@ -1,7 +1,13 @@
 .header {
-  font-weight: bold;  
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .monthGroup {
   padding: 0 20px 15px;
+}
+
+.name {
+  width: 150px;
+  display: inline-block;
 }

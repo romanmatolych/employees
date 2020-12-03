@@ -17,7 +17,9 @@ const EmployeesBirthday = ({ selectedUsers }) => {
 
   return (
     <div className={styles.employeesBirthday}>
-      <div className="header">Employees birthday</div>
+      <div className="header">
+        <span className="headerText">Employees birthday</span>
+      </div>
       {selectedUsers.length ? monthGroups : 'No selected employees'}
     </div>
   );

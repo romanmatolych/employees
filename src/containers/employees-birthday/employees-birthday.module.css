@@ -1,9 +1,11 @@
 .employeesBirthday {
-    width: 100%;
+  width: 100%;
+  background-color: rgba(201, 204, 212, 0.2);
+  padding: 25px;
 }
 
 @media only screen and (min-width: 1000px) {
-    .employeesBirthday {
-        width: 40%;
-    }
+  .employeesBirthday {
+    width: 40%;
+  }
 }
