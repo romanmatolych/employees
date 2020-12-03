@@ -11,7 +11,9 @@ const LetterSection = ({ letter, users, onUserCheck }) => {
 
   return (
     <div className={styles.letterSection}>
-      <div className={styles.header}>{letter}</div>
+      <div className={styles.header}>
+        <div className={styles.letter}>{letter}</div>
+      </div>
       {userList.length ? userList : '—'}
     </div>
   );

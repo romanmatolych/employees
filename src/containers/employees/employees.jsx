@@ -40,7 +40,9 @@ const Employees = ({ users, loadUsers, triggerUser, isLoading, selectedUserIds, 
 
   return (
     <div className={styles.employees}>
-      <div className="header">Employees</div>
+      <div className="header">
+        <span className="headerText">Employees</span>
+      </div>
       <div className={styles.alphabetMenu}>{getMenuContent()}</div>
     </div>
   );

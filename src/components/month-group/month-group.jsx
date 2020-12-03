@@ -10,7 +10,10 @@ const MonthGroup = ({ monthName, users }) => {
     .sort((firstUser, secondUser) => Date.parse(firstUser.dob) - Date.parse(secondUser.dob))
     .map(({ id, lastName, firstName, dob }) => (
       <li key={id}>
-        {lastName} {firstName} - {formatUsersDOB(dob)}
+        <span className={styles.name}>
+          {lastName} {firstName}
+        </span>{' '}
+        {formatUsersDOB(dob)}
       </li>
     ));
 
